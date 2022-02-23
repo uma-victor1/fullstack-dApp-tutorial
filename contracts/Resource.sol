@@ -17,13 +17,9 @@ contract ResourceShare {
   
 
   
-mapping(uint => Resource) resources;
+Resource[] private resources;
 
  uint numResources;
-
- constructor () public {
-     numResources = 0;
- }
 
   function addResource(string memory title, string memory url, string memory description) public returns (uint resourceID) {
    resourceID = numResources++;
@@ -36,18 +32,7 @@ mapping(uint => Resource) resources;
    resource.total_votes = 0;
   }
 
-  function listResource() public view returns(Resource[] memory) {
+  function listResource() external view returns(Resource[] memory) {
      return resources;
   }
-
-    // string private greeting;
-
-    // function greet() public view returns (string memory) {
-    //     return greeting;
-    // }
-
-    // function setGreeting(string memory _greeting) public {
-    //     console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
-    //     greeting = _greeting;
-    // }
 }
