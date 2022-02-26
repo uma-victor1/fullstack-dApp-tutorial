@@ -26,7 +26,20 @@ async function getTotalResource() {
 }
 
 async function getResources(){
-
+    const resources = await contract.getResources()
+    console.log(resources);
 }
 
-getTotalResource()
+async function addResource() {
+    await contract.addResource('w3schools','https://www.w3schools.com/', "Learn and build projects")
+    
+}
+
+async function voteResource(id) {
+  await contract.voteResource(id)
+}
+
+
+voteResource(1)
+getResources()
+
