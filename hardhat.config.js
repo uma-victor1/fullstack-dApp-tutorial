@@ -21,5 +21,10 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     artifacts: './src/artifacts',
   },
   solidity: "0.8.4",
+  networks: {
+    hardhat: {
+      chainId: 1337
+    }
+  }
 };
 
