@@ -3,6 +3,7 @@ pragma solidity ^0.8.0; // Solidity files have to start with this pragma.
 pragma experimental ABIEncoderV2;
 
 contract ResourceShare {
+
     struct Resource {
         uint256 id;
         address creator;

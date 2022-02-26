@@ -14,8 +14,8 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Resource = await hre.ethers.getContractFactory("ResourceShare");
-  const resourceshare = await Resource.deploy();
+  const ResourceShare = await hre.ethers.getContractFactory("ResourceShare");
+  const resourceshare = await ResourceShare.deploy();
 
   await resourceshare.deployed();
 
