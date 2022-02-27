@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
 
-function ListResources({ resource }) {
+
+function ListResources({ resource, contract }) {
   console.log(resource);
-  
+  console.log(contract, "list resources");
+
+ async function vote(id) {
+
+  console.log(contract.address, "address of resource creator");
+  console.log(contract.numResource(), "number of resource");
+  await contract.voteResource(id)
+  }
   return (
     <div className="project">
       <h2>{resource.title}</h2>{' '}
@@ -12,9 +19,8 @@ function ListResources({ resource }) {
       <h4>Link:<a href={resource.url}>{resource.url}</a></h4>
       <h4>Votes: {resource.total_votes}</h4>
       <button
-        onClick={() => {
-            contract.add_vote({ id: resource.id })
-        }}
+        onClick={(id) => vote(resource.id)}
+
       >
         Vote
       </button>

@@ -2,7 +2,7 @@
 const { ethers } = require("hardhat");
 
 
-const ResourceShareArtifact = require('../src/artifacts/contracts/Resource.sol/ResourceShare.json')
+const ResourceShareArtifact = require('../frontend/src/artifact/contracts/Resource.sol/ResourceShare.json')
 
 let provider = new ethers.providers.getDefaultProvider('http://127.0.0.1:8545/')
 let privatekey = '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'
@@ -40,6 +40,7 @@ async function voteResource(id) {
 }
 
 
-voteResource(1)
-getResources()
+// voteResource(1)
+// getResources()
 
+addResource()

@@ -5,17 +5,17 @@ pragma experimental ABIEncoderV2;
 contract ResourceShare {
 
     struct Resource {
-        uint256 id;
+        uint8 id;
         address creator;
         string title;
         string url;
         string description;
-        int64 total_votes;
+        uint8 total_votes;
     }
 
     mapping(uint256 => Resource) public resources;
     event savingsEvent(uint256 indexed _resourceId);
-    uint256 public numResource;
+    uint8 public numResource;
 
     constructor() {
         numResource = 0;

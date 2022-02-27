@@ -1,6 +1,8 @@
 import './App.css';
 import ResourceArtifact from "../src/artifact/contracts/Resource.sol/ResourceShare.json"
 import {ethers} from 'ethers'
+import ListResources from './components/ListResources';
+import CreateResource from './components/CreateResource'
 import {useEffect, useState } from 'react';
 
 const resourceAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
@@ -10,10 +12,13 @@ const resourceAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 function App() {
   const [resourceData, setResourceData] = useState([])
-
-
+  const [toggleModal, setToggleModal] = useState(false)
+  const [contract, setContract] = useState()
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' });
+  }
+  function addResource() {
+    setToggleModal(!toggleModal)
   }
   
    const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -40,6 +45,7 @@ function App() {
           const contract = await _intializeContract(signer)
           const resourcedata = await contract.getResources();
           const resources = [...resourcedata]
+          setContract(contract)
           setResourceData(resources)   
         })() 
       }
@@ -47,11 +53,25 @@ function App() {
     [],
   )
   console.log(resourceData);
- 
+ console.log(resourceData.length);
  
   return (
     <>
-      <div>My app</div>
+      <header>
+      <button onClick={addResource}>Add a resource</button>
+      </header>
+       <main>
+       <CreateResource toggleModal={toggleModal} contract={contract} />
+        <section className='resources'>
+          {resourceData.map((resource, id) => {
+            return (
+              <div key={id}>
+                <ListResources resource={resource} contract={contract} />
+              </div>
+            )
+          })}
+        </section>
+      </main>
     </>
   );
 }
