@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
-function CreateResource({toggleModal, contract}) {
+
+
+function CreateResource({ toggleModal, contract }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    contract.addResource(title, url, description);
-    alert(`resource info: ${title} ${url} ${description}`)
+    contract.addResource(title, url, description)
   }
-console.log(`its ${toggleModal}`);
+
   return (
     <div>
       {toggleModal === true && (
-        <div className='addresource'>
+        <div className="addresource">
           <form onSubmit={handleSubmit}>
             <label>
               Enter resource title:
@@ -39,13 +40,11 @@ console.log(`its ${toggleModal}`);
                 onChange={(e) => setDescription(e.target.value)}
               />
             </label>
-            <input type="submit" className='submit' />
+            <input type="submit" className="submit" />
           </form>
         </div>
       )}
-      
     </div>
-    
   )
 }
 

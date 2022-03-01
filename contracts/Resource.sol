@@ -31,7 +31,8 @@ contract ResourceShare {
         string memory url,
         string memory description
     ) public {
-        Resource storage resource = resources[numResource];
+
+        Resource storage resource = resources[numResource]; // new instance of our resource
         resource.creator = msg.sender;
         resource.total_votes = 0;
         resources[numResource] = Resource(
