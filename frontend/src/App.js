@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     // in this case, we only care to query the contract when signed in
     if (typeof window.ethereum !== 'undefined') {
-      (async function getResourcesCount() {
+      (async function getResources() {
         await requestAccount()
         const contract = await _intializeContract(signer)
         const resourcedata = await contract.getResources()
