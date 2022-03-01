@@ -1,15 +1,21 @@
-# Basic Sample Hardhat Project
+# Fullstack dApp tutorial
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project demonstrates how to build a fullstack dApp on the ethereum network using the solidity language for our smart contract and React for our UI.
 
-Try running some of the following tasks:
 
+## Prerequisites to follow this tutorial
+- Node and npm
+- Little knowledge of React and solidity
+- Hardhat
+
+# Running the dApp
+Clone or download this repo to your machine and run the command:
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+npm install
 ```
+# Frontend
+cd into the frontend directory and run
+```shell
+npm run start
+```
+make sure you have the [metamask](https://metamask.io/) wallet installed.

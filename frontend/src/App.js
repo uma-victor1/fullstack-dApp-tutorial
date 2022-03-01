@@ -48,8 +48,6 @@ function App() {
       })()
     }
   }, [])
-  console.log(resourceData)
-  console.log(resourceData.length)
 
   return (
     <>
